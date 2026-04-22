@@ -12,15 +12,17 @@
 </script>
 <script src="https://cdn.botpress.cloud/webchat/v3.6/inject.js"></script>
 <script>
-  window.botpress.on('ready', () => {
-    window.botpress.open();
-    window.botpress.sendEvent({
-      type: 'trigger',
-      payload: {
-        sam: window.__bp_sam,
-        cabinet: window.__bp_cabinet
-      }
-    });
+  window.botpressWebChat.init({
+    configUrl: 'https://files.bpcontent.cloud/2026/02/09/20/20260209204236-VVRH1HE9.json',
+    onInit: () => {
+      window.botpressWebChat.sendPayload({
+        type: 'trigger',
+        payload: {
+          sam: window.__bp_sam,
+          cabinet: window.__bp_cabinet
+        }
+      });
+    }
   });
 </script>
 </body>
