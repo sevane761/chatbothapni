@@ -4,24 +4,27 @@
   <title>Support HAPNI</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
-    body, html { margin: 0; padding: 0; height: 100%; }
-    #bp-webchat { width: 100%; height: 100vh; border: none; }
+    body, html { margin: 0; padding: 0; height: 100%; overflow: hidden; }
   </style>
 </head>
 <body>
 <script src="https://cdn.botpress.cloud/webchat/v3.6/inject.js"></script>
-<script src="https://files.bpcontent.cloud/2026/02/09/20/20260209204236-DK45RE03.js" defer></script>
 <script>
   const params = new URLSearchParams(window.location.search);
   const sam = params.get('sam') || '';
   const cabinet = params.get('cabinet') || '';
 
-  window.botpress.on('webchat:initialized', function() {
-    window.botpress.updateUser({
-      data: { sam: sam, cabinet: cabinet }
-    });
-    window.botpress.open();
+  window.botpress.init({
+    botId: 'DK45RE03',
+    configuration: {
+      metadata: {
+        sam: sam,
+        cabinet: cabinet
+      }
+    }
   });
+
+  window.botpress.open();
 </script>
 </body>
 </html>
