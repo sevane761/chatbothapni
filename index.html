@@ -14,12 +14,11 @@
 
   window.botpress.on('webchat:ready', function() {
     window.botpress.updateUser({
-      data: {
-        sam: sam,
-        cabinet: cabinet
-      }
+      data: { sam: sam, cabinet: cabinet }
     });
-    window.botpress.open();
+    setTimeout(function() {
+      window.botpress.open();
+    }, 1000);
   });
 </script>
 </body>
