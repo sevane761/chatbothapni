@@ -9,10 +9,16 @@
 <script src="https://files.bpcontent.cloud/2026/02/09/20/20260209204236-DK45RE03.js" defer></script>
 <script>
   const params = new URLSearchParams(window.location.search);
-  window.__bp_sam = params.get('sam') || '';
-  window.__bp_cabinet = params.get('cabinet') || '';
+  const sam = params.get('sam') || '';
+  const cabinet = params.get('cabinet') || '';
 
-  window.botpress.on('ready', function() {
+  window.botpress.on('webchat:ready', function() {
+    window.botpress.updateUser({
+      data: {
+        sam: sam,
+        cabinet: cabinet
+      }
+    });
     window.botpress.open();
   });
 </script>
