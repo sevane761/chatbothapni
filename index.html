@@ -12,10 +12,8 @@
   window.__bp_sam = params.get('sam') || '';
   window.__bp_cabinet = params.get('cabinet') || '';
 
-  document.addEventListener('DOMContentLoaded', function() {
-    window.botpress.on('ready', function() {
-      window.botpress.open();
-    });
+  window.botpress.on('ready', function() {
+    window.botpress.open();
   });
 </script>
 </body>
