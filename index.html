@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Support HAPNI</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+</head>
+<body>
+<script>
+  const params = new URLSearchParams(window.location.search);
+  window.__bp_sam = params.get('sam') || '';
+  window.__bp_cabinet = params.get('cabinet') || '';
+</script>
+<script src="https://cdn.botpress.cloud/webchat/v3.6/inject.js"></script>
+<script>
+  window.botpress.on('ready', () => {
+    window.botpress.open();
+    window.botpress.sendEvent({
+      type: 'trigger',
+      payload: {
+        sam: window.__bp_sam,
+        cabinet: window.__bp_cabinet
+      }
+    });
+  });
+</script>
+</body>
+</html>
