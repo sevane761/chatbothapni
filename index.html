@@ -9,8 +9,19 @@
   </style>
 </head>
 <body>
-<iframe id="bp-webchat" 
-  src="https://cdn.botpress.cloud/webchat/v3.6/shareable.html?configUrl=https://files.bpcontent.cloud/2026/02/09/20/20260209204236-VVRH1HE9.json">
-</iframe>
+<script src="https://cdn.botpress.cloud/webchat/v3.6/inject.js"></script>
+<script src="https://files.bpcontent.cloud/2026/02/09/20/20260209204236-DK45RE03.js" defer></script>
+<script>
+  const params = new URLSearchParams(window.location.search);
+  const sam = params.get('sam') || '';
+  const cabinet = params.get('cabinet') || '';
+
+  window.botpress.on('webchat:initialized', function() {
+    window.botpress.updateUser({
+      data: { sam: sam, cabinet: cabinet }
+    });
+    window.botpress.open();
+  });
+</script>
 </body>
 </html>
