@@ -1,3 +1,4 @@
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -9,14 +10,20 @@
   </style>
 </head>
 <body>
+<script src="https://cdn.botpress.cloud/webchat/v3.6/inject.js"></script>
+<script src="https://files.bpcontent.cloud/2026/02/09/20/20260209204236-DK45RE03.js" defer></script>
 <script>
   const params = new URLSearchParams(window.location.search);
   const sam = params.get('sam') || '';
   const cabinet = params.get('cabinet') || '';
 
-  const iframeUrl = `https://cdn.botpress.cloud/webchat/v3.6/shareable.html?configUrl=https://files.bpcontent.cloud/2026/02/09/20/20260209204236-VVRH1HE9.json&sam=${sam}&cabinet=${cabinet}`;
-
-  document.write(`<iframe id="bp-webchat" src="${iframeUrl}"></iframe>`);
+  window.botpress.on('webchat:initialized', function() {
+    window.botpress.sendEvent({
+      sam: sam,
+      cabinet: cabinet
+    });
+    window.botpress.open();
+  });
 </script>
 </body>
 </html>
