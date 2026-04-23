@@ -1,4 +1,3 @@
-
 <!DOCTYPE html>
 <html>
 <head>
@@ -6,26 +5,16 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
     body, html { margin: 0; padding: 0; height: 100%; overflow: hidden; }
-    .bp-widget-widget { 
-      width: 100vw !important; 
-      height: 100vh !important;
-      max-width: 100% !important;
-      max-height: 100% !important;
-    }
+    #bp-webchat { width: 100%; height: 100vh; border: none; display: block; }
   </style>
 </head>
 <body>
-<script src="https://cdn.botpress.cloud/webchat/v3.6/inject.js"></script>
-<script src="https://files.bpcontent.cloud/2026/02/09/20/20260209204236-DK45RE03.js" defer></script>
 <script>
   const params = new URLSearchParams(window.location.search);
   const sam = params.get('sam') || '';
   const cabinet = params.get('cabinet') || '';
-
-  window.botpress.on('webchat:initialized', function() {
-    window.botpress.sendEvent({ sam: sam, cabinet: cabinet });
-    window.botpress.open();
-  });
+  const iframeUrl = `https://cdn.botpress.cloud/webchat/v3.6/shareable.html?configUrl=https://files.bpcontent.cloud/2026/02/09/20/20260209204236-VVRH1HE9.json&sam=${sam}&cabinet=${cabinet}`;
+  document.write(`<iframe id="bp-webchat" src="${iframeUrl}"></iframe>`);
 </script>
 </body>
 </html>
