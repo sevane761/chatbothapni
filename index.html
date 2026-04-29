@@ -18,10 +18,12 @@
 
   window.botpress.on('webchat:initialized', function() {
     window.botpress.open();
-    setTimeout(function() {
-      window.botpress.sendMessage('__init__:sam=' + sam + ':cabinet=' + cabinet);
-    }, 500);
+  });
+
+  window.botpress.on('webchat:ready', function() {
+    window.botpress.sendMessage('__init__:sam=' + sam + ':cabinet=' + cabinet);
   });
 </script>
 </body>
+</html>
 </html>
